@@ -230,3 +230,11 @@ USER ${spark_uid}
 
 # Try to downgrade linux-libc-dev
 /bin/sh -c apt-get -o Acquire::Check-Valid-Until=false update && apt-get upgrade -y && apt-get dist-upgrade -y &&     apt install -y python3 python3-pip &&     pip3 install --upgrade pip setuptools &&     rm -rf /root/.cache && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* &&     rm -rf /opt/spark/jars/mesos-1.4.3-shaded-protobuf.jar &&     rm -rf /opt/spark/jars/netty-codec-http2-4.1.96.Final.jar &&     rm -rf /opt/spark/jars/hadoop-client-runtime-3.3.4.jar &&     apt update -y &&     apt install update-manager-core -y &&     apt install linux-libc-dev=5.15.0-25.25 -y --allow-downgrades &&     dpkg --configure -a &&     apt install -f &&     apt autoremove -y
+
+
+Z2hwX0I1NEVDVkNHZW05SlVxRWU5M1RLTWdqWHBRUTIwZTNOREwwRw
+
+
+https://github.com/kubeflow/spark-operator
+
+docker build --build-arg SPARK_IMAGE=wangjiahua/spark:3.5.0-v1.0 -t wangjiahua/spark-operator:3.5.0-v1.1 .
