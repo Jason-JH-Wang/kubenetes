@@ -238,3 +238,42 @@ Z2hwX0I1NEVDVkNHZW05SlVxRWU5M1RLTWdqWHBRUTIwZTNOREwwRw
 https://github.com/kubeflow/spark-operator
 
 docker build --build-arg SPARK_IMAGE=wangjiahua/spark:3.5.0-v1.0 -t wangjiahua/spark-operator:3.5.0-v1.1 .
+
+
+
+
+apt update
+apt install build-essential -y
+apt install zlib1g-dev
+apt install xz-utils
+apt install pkg-config
+apt install libexpat1-dev
+apt install make
+wget https://dbus.freedesktop.org/releases/dbus/dbus-1.15.6.tar.xz
+tar -xf dbus-1.15.6.tar.xz 
+cd dbus-1.15.6
+./configure --prefix=/usr/local/dbus-1.15.6
+make
+make install
+
+
+162.159.193.7：2048
+
+
+
+apt update
+apt-get --purge remove python3.10 -y
+apt-get autoremove -y 
+find / -name '*python3.10*' -exec rm -rf {} \; || true
+apt install zlib1g-dev libffi-dev libssl-dev make build-essential -y
+tar -zxvf Python-3.10.14.tgz
+cd Python-3.10.14
+./configure --enable-optimizations
+make -j$(nproc)
+make altinstall
+&& ln -fs /usr/local/bin/python3.10 /usr/bin/python3 \
+&& ln -fs /usr/local/bin/python3.10 /usr/bin/python \
+&& ln -fs /usr/local/bin/pip3 /usr/bin/pip \
+cd ..
+pip install --upgrade pip
+pip install PyYAML \
